@@ -1,0 +1,8 @@
+name: JSON Web Token
+type: module
+description: json authenticator using jwt (thanks to https://dropsolid.com/en/blog/drupal-8-and-react-native)
+core: 8.x
+package: Custom
+dependencies:
+  - jwt
+  - restui
