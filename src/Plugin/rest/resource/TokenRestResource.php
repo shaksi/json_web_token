@@ -58,7 +58,7 @@ class TokenRestResource extends ResourceBase {
      $data['message'] = $this->t("Login failed. If you don't have an account register. If you forgot your credentials please reset your password.");
     }else{
      $data['message'] = $this->t('Login succeeded');
-  //   $data['token'] = $this->generateToken();
+     $data['token'] = $this->generateToken();
     }
 
     return new ResourceResponse($data);
