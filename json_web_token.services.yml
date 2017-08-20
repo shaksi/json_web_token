@@ -1,6 +1,6 @@
 services:
  authentication.json_web_token:
-   class: Drupal\json_web_token\Authentication\Provider\JsonAuthenticationProvider
+   class: Drupal\json_web_token\Authentication\Provider\JsonAuth
    arguments: ['@config.factory', '@user.auth', '@flood', '@entity.manager']
    tags:
-     - { name: authentication_provider, provider_id: 'json_authentication_provider', priority: 100 }
+     - { name: authentication_provider, provider_id: 'json_auth', priority: 100 }
