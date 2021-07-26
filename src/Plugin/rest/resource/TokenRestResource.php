@@ -10,7 +10,7 @@ use Drupal\jwt\Authentication\Event\JwtAuthEvents;
 use Drupal\jwt\JsonWebToken\JsonWebToken;
 use Drupal\rest\Plugin\ResourceBase;
 use Psr\Log\LoggerInterface;
-use Drupal\rest\ResourceResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -81,12 +81,16 @@ class TokenRestResource extends ResourceBase {
   public function post() {
     if(\Drupal::currentUser()->isAnonymous()){
       $data['message'] = $this->t("Login failed. If you don't have an account register. If you forgot your credentials please reset your password.");
+      $http_code=401;
     }else{
       $data['message'] = $this->t('Login succeeded');
       $data['token'] = $this->generateToken();
+      $http_code=401;
     }
 
-    return new ResourceResponse($data);
+    // return new ResourceResponse($data);
+    return new JsonResponse($data, $http_code);
+
   }
 
   /**
