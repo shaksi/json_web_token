@@ -85,7 +85,7 @@ class TokenRestResource extends ResourceBase {
     }else{
       $data['message'] = $this->t('Login succeeded');
       $data['token'] = $this->generateToken();
-      $http_code=401;
+      $http_code=200;
     }
 
     // return new ResourceResponse($data);
